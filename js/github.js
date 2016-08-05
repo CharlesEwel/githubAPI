@@ -6,10 +6,13 @@ function gitHubRequest(username) {
 
 gitHubRequest.prototype.getRepos = function(){
   var username = this.username;
-  $.get('https://api.github.com/users/'+username+'?access_token=' + apiKey).then(function(response){
+  $.get('https://api.github.com/users/'+username+'/repos?access_token=' + apiKey).then(function(response){
     console.log(response);
+    response.forEach(function(repository){
+      $("#repository-list").append("<li><span class='repository-name'>"+repository.name+"</span> "+repository.description+"</li>");
+    });
   }).fail(function(error){
-    console.log(error.responseJSON.message);
+    alert(error.responseJSON.message);
   });
 };
 
