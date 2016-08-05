@@ -1,12 +1,4 @@
-
-// $.get('./../.env').success(function() {
-//   console.log("shouldn't see this");
-//   var apiKey = require('./../.env').apiKey;
-// }).fail(function() {
-//   console.log("should see this");
-// })
-
-// var apiKey = require('./../.env').apiKey;
+var apiKey = require('./../.env').apiKey;
 function gitHubRequest(username) {
   this.username = username;
 }
