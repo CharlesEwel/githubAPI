@@ -9,7 +9,7 @@ gitHubRequest.prototype.getRepos = function(){
   $.get('https://api.github.com/users/'+username+'/repos?access_token=' + apiKey).then(function(response){
     console.log(response);
     response.forEach(function(repository){
-      $("#repository-list").append("<li><span class='repository-name'>"+repository.name+"</span> "+repository.description+"</li>");
+      $("#repository-list").append("<li><span class='repository-name'>" + repository.name + "</span><ul><li>Description: " + repository.description + "</li><li>Date Created: " + moment(repository.created_at).format('MM/DD/YYYY') + "</li></ul></li>");
     });
   }).fail(function(error){
     alert(error.responseJSON.message);
